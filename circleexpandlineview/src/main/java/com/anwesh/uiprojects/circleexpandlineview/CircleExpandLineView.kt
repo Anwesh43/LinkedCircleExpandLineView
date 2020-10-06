@@ -218,4 +218,13 @@ class CircleExpandLineView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : CircleExpandLineView {
+            val view : CircleExpandLineView = CircleExpandLineView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }

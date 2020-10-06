@@ -195,4 +195,27 @@ class CircleExpandLineView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : CircleExpandLineView) {
+
+        private val animator : Animator = Animator(view)
+        private val cel : CircleExpandLine = CircleExpandLine(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            cel.draw(canvas, paint)
+            animator.animate {
+                cel.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            cel.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }

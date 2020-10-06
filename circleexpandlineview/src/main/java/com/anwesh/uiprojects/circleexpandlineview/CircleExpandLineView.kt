@@ -54,7 +54,7 @@ fun Canvas.drawCircleExpandLine(scale : Float, w : Float, h : Float, paint : Pai
         clipPath(path)
         drawRect(RectF(0f, -size / 2, size * sf1, size / 2), paint)
         restore()
-        drawLine(size, 0f, (w / 2 - size) * sf2, 0f, paint)
+        drawLine(size, 0f, size + (w / 2 - size) * sf2 + (h / 2 - w / 2) * sf3, 0f, paint)
         restore()
     }
     restore()
